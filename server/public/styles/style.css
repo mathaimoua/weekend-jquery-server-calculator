@@ -1,3 +1,12 @@
-#modeDiv, #resultsDiv, #historyDiv {
-  margin-top: 8px;
+#modeDiv, #resultsDiv{
+  margin-top: 15px;
+}
+
+#historyDiv {
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+#resultsHere {
+  font-size: 6ch;
 }

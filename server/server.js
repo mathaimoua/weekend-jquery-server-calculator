@@ -10,10 +10,15 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static('server/public'));
 
 app.get('/compute', (req, res) => {
-  res.send(calculateThings(equationString));
+  let answer = { 
+    history: equationString[0]+equationString[1]+equationString[2],
+    key: calculateThings(equationString) 
+  }
+  res.send(answer);
 });
 
 app.post('/compute', (req, res) => {
+  equationString = [];
   equationString.push(req.body.num1);
   equationString.push(req.body.mode);
   equationString.push(req.body.num2);
@@ -26,5 +31,16 @@ app.listen(PORT, function() {
 });
 
 function calculateThings(){
-
+  if (equationString[1] === '+'){
+    return (Number(equationString[0]) + Number(equationString[2]));
+  }
+  if (equationString[1] === '-'){
+    return (Number(equationString[0]) - Number(equationString[2]));
+  }
+  if (equationString[1] === '*'){
+    return (Number(equationString[0]) * Number(equationString[2]));
+  }
+  if (equationString[1] === '/'){
+    return (Number(equationString[0]) / Number(equationString[2]));
+  }
 }

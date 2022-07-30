@@ -11,26 +11,26 @@ function onReady(){
 }
 
 function modeChangeAddition(){
-  $('#modeDiv').empty();
-  $('#modeDiv').append('+');
+  $('#modeHere').empty();
+  $('#modeHere').append('+');
   mode = '+';
 }
 
 function modeChangeSubtraction(){
-  $('#modeDiv').empty();
-  $('#modeDiv').append('-');
+  $('#modeHere').empty();
+  $('#modeHere').append('-');
   mode = '-';
 }
 
 function modeChangeMultiplication(){
-  $('#modeDiv').empty();
-  $('#modeDiv').append('*');
+  $('#modeHere').empty();
+  $('#modeHere').append('*');
   mode = '*';
 }
 
 function modeChangeDivision(){
-  $('#modeDiv').empty();
-  $('#modeDiv').append('/');
+  $('#modeHere').empty();
+  $('#modeHere').append('/');
   mode = '/';
 }
 
@@ -41,7 +41,6 @@ function runEquals(){
     alert('Please select a mode!');
     return -1;
   } else {
-    $('#modeDiv').empty();
     $.ajax({
       method: 'POST',
       url: '/compute',
@@ -53,9 +52,10 @@ function runEquals(){
     }).then(function (){
       $('#input1').val('');
       $('#input2').val('');
+      $('#modeHere').empty();
+      mode = '';
       getValue();
     });
-    // $('#modeDiv').append(input1, mode, input2);
   }
 }
 
@@ -64,6 +64,11 @@ function getValue(){
     method: 'GET',
     url: '/compute'
   }).then(function (response){
-    console.log('answer is', response);
+    // console.log('answer is', response.key);
+    $('#resultsHere').empty();
+    $('#resultsHere').append(response.key);
+    $('#historyList').append(`
+      <li>${response.history}</li>
+    `);
   })
 }
