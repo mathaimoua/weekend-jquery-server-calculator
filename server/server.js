@@ -13,7 +13,7 @@ app.get('/compute', (req, res) => { // This is our get method that sends back th
   // We'll create an object variable to store everything we'll need to send back, the answer and the string for the historyDiv.
   let answer = { 
     // This is our history string to append as an <li> later
-    history: equationString[0]+equationString[1]+equationString[2],
+    history: equationString[0]+' '+equationString[1]+' '+equationString[2],
     // They key is the result of the calculateThings function down below
     // The calculateThings function will take our string from our POST method and compute it
     key: calculateThings(equationString) 
