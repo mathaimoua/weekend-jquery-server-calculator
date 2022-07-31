@@ -2,6 +2,7 @@ const express = require('express');
 
 // This will be our equation string which we'll use later once we get the right information
 equationString = [];
+historyArray = [];
 
 //create instance of express!
 const app = express();
@@ -11,9 +12,11 @@ app.use(express.static('server/public'));
 
 app.get('/compute', (req, res) => { // This is our get method that sends back the answer to the client after computing
   // We'll create an object variable to store everything we'll need to send back, the answer and the string for the historyDiv
+  // Push our current items to the history array and send it to client. Does not overwrite old equations
+  historyArray.push(equationString[0]+' '+equationString[1]+' '+equationString[2]);
   let answer = { 
     // This is our history string to append as an <li> later
-    history: equationString[0]+' '+equationString[1]+' '+equationString[2],
+    history: historyArray,
     // They key is the result of the calculateThings function down below
     // The calculateThings function will take our string from our POST method and compute it
     key: calculateThings(equationString) 

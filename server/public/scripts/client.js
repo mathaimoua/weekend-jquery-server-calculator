@@ -70,8 +70,11 @@ function getValue(){ // This function runs after data is sent to the server
   }).then(function (response){ // Ajax should receive a response/object from server containing an object that contains our answer, and our string to append to the history Div
     $('#resultsHere').empty(); // First, empty the results from previous equation
     $('#resultsHere').append(response.key); // Append the new answer to the results space as a new <li>
+    // console.log(response.history);
+    $('#historyList').empty(); // Empty historyDiv before we append new things
+    for (let history of response.history){ // Since the history key is an array, we'll need to iterate through the array of history and display on DOM
     $('#historyList').append(`
-      <li>${response.history}</li>
-    `);
+      <li>${history}</li>
+    `);}
   })
 }
