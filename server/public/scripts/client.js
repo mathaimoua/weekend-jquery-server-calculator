@@ -8,6 +8,7 @@ function onReady(){
   $('#multiplyBtn').on('click', modeChangeMultiplication); // When we click the * sign...
   $('#divideBtn').on('click', modeChangeDivision); // When we click the / sign...
   $('#equalsBtn').on('click', runEquals); // When we click the = sign, send all info to server
+  $('#clearBtn').on('click', clearInputs);
 }
 
 function modeChangeAddition(){ //When the + sign is clicked...
@@ -77,4 +78,11 @@ function getValue(){ // This function runs after data is sent to the server
       <li>${history}</li>
     `);}
   })
+}
+
+function clearInputs(){
+  $('#modeHere').empty(); // Empty out the 'mode' spot on webpage and show the - sign
+  mode = ''; 
+  $('#input1').val('');
+  $('#input2').val('');
 }
