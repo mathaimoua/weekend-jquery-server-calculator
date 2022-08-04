@@ -6,7 +6,8 @@ historyArray = [];
 
 //create instance of express!
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+// setup for req.body usage
 app.use(express.urlencoded({extended : true}));
 app.use(express.static('server/public'));
 
@@ -36,6 +37,7 @@ app.post('/compute', (req, res) => { // This is our post route, when information
   res.sendStatus(200); // 'OK'
 });
 
+// Listen!
 app.listen(PORT, function() {
   console.log('listening on port', PORT)
 });

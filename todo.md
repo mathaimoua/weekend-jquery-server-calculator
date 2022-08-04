@@ -1,0 +1,57 @@
+# TODO FOR PROJECT
+
+- [X] Project Setup
+  - [X] PROJECT
+    - 'npm init' -- this creates a package.json (blockbuster)
+    - Install express -- 
+    - .gitignore
+    - folders...?
+  - [X] Client Side UI
+    - jQuery
+    - client.js
+    - index.html
+    - style.css
+  - [X] Server Setup
+    - server.js
+-[X] Static File Server
+  - [X] "I should be able to see index.html when I visit localhost:5000."
+    - [X] Setup port 5000
+    - [X] Require 'express'
+    - [X] urlencoded setup for (req.body)
+    - [X] static  setup (server/public)
+    - [X] Listen
+- [] Calculate!
+  - [] DO MATH
+    - [X] Client side HTML
+      - [X] two inputs
+      - [X] operators
+      - [X] = button
+      - [X] c button
+      - [X] History Zone
+      - [X] Answer Zone
+    - [] Client Side JS
+      - [X] Operator click logic
+        - [] "When I click on an operator, I should be able to see the correct one I clicked."
+      - [] Submit
+        - [] "When I click on =, it should...
+          - [] Post to /calculate
+            - [] save on server
+            - [] send back OK/CREATED
+      - [] Clear
+        - [] "When I click on clear, it should empty input fields."
+      - [] History
+        - "When I load the page, I should see all the previous calculations."
+        - [] GET /calculations
+        - [] Append to DOM
+
+      - [] Answer
+        - Append to DOM...
+    - [] SERVER SIDE
+      - [] Store Calculations!
+      - [] POST /calculation route
+        - Trigger saving, mathing, doing...
+      - [] DO MATH
+        - Receive input, calculate the result
+      - [] Send history, answer...
+        - [] GET /calculation route
+
